@@ -1,79 +1,55 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+## BUILD
 
-# Getting Started
+<h3>1. If you got the error **intalling boost** when run **npx pod-install**</h3>
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+Go to **node_modules/react-native/third-party-podspecs** from the root of your project
 
-## Step 1: Start the Metro Server
-
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
-
-To start Metro, run the following command from the _root_ of your React Native project:
+Replace this below content
 
 ```bash
-# using npm
-npm start
+# Copyright (c) Meta Platforms, Inc. and affiliates.
+#
+# This source code is licensed under the MIT license found in the
+# LICENSE file in the root directory of this source tree.
 
-# OR using Yarn
-yarn start
+Pod::Spec.new do |spec|
+  spec.name = 'boost'
+  spec.version = '1.76.0'
+  spec.license = { :type => 'Boost Software License', :file => "LICENSE_1_0.txt" }
+  spec.homepage = 'http://www.boost.org'
+  spec.summary = 'Boost provides free peer-reviewed portable C++ source libraries.'
+  spec.authors = 'Rene Rivera'
+  # spec.source = { :http => 'https://boostorg.jfrog.io/artifactory/main/release/1.76.0/source/boost_1_76_0.tar.bz2',
+  spec.source = { :http => 'https://sourceforge.net/projects/boost/files/boost/1.76.0/boost_1_76_0.tar.bz2',
+                  :sha256 => 'f0397ba6e982c4450f27bf32a2a83292aba035b827a5623a14636ea583318c41' }
+
+  # Pinning to the same version as React.podspec.
+  spec.platforms = { :ios => '11.0' }
+  spec.requires_arc = false
+
+  spec.module_name = 'boost'
+  spec.header_dir = 'boost'
+  spec.preserve_path = 'boost'
+end
+
 ```
 
-## Step 2: Start your Application
+Follow: https://github.com/rvm/rvm/issues/5404#issuecomment-1806701326
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
 
-### For Android
+<h3>2. If you got the error flipper when run ios</h3>
 
-```bash
-# using npm
-npm run android
+https://github.com/facebook/react-native/issues/43335#issuecomment-1980176818
 
-# OR using Yarn
-yarn android
+
+<h3>3. Metro not connect</h3>
+
+```
+npx react-native bundle --entry-file index.js --platform ios --dev false --bundle-output ios/main.jsbundle --assets-dest ios
 ```
 
-### For iOS
+<h3>4. Android build error</h3>
 
-```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
 ```
-
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+./gradlew clean
+```
