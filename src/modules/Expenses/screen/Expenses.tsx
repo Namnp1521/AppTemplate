@@ -49,7 +49,16 @@ function Expenses() {
           <Block margin={[0, 20]} mb={20}>
             <SelectInput
               title={'Employee name'}
-              items={[]}
+              items={[
+                {
+                  label: 'Employee 1',
+                  value: 'Employee 2',
+                },
+                {
+                  label: 'Employee 2',
+                  value: 'Employee 2',
+                },
+              ]}
               value={''}
               onSelectItem={() => {}}
             />
@@ -69,7 +78,16 @@ function Expenses() {
             <SelectInput
               value={''}
               title={'Utility Bill'}
-              items={[]}
+              items={[
+                {
+                  label: 'Utility 1',
+                  value: 'Utility 2',
+                },
+                {
+                  label: 'Utility 2',
+                  value: 'Utility 2',
+                },
+              ]}
               onSelectItem={() => {}}
             />
           </Block>
@@ -77,7 +95,16 @@ function Expenses() {
             <SelectInput
               value={''}
               title={'Location'}
-              items={[]}
+              items={[
+                {
+                  label: 'Location 1',
+                  value: 'Location 2',
+                },
+                {
+                  label: 'Location 2',
+                  value: 'Location 2',
+                },
+              ]}
               onSelectItem={() => {}}
             />
           </Block>

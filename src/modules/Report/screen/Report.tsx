@@ -16,10 +16,6 @@ import InfoTable from '../components/InfoTable';
 
 function Report() {
   /** props */
-  const items = [
-    {label: 'test1', value: '1'},
-    {label: 'test1', value: '2'},
-  ];
 
   /** render */
   return (
@@ -31,7 +27,16 @@ function Report() {
               <SelectInput
                 value={''}
                 title={'Inventory report'}
-                items={items}
+                items={[
+                  {
+                    label: 'Inventory report 1',
+                    value: 'Inventory report 2',
+                  },
+                  {
+                    label: 'Inventory report 2',
+                    value: 'Inventory report 2',
+                  },
+                ]}
                 onSelectItem={() => {}}
               />
             </Block>
@@ -42,7 +47,16 @@ function Report() {
               <SelectInput
                 value={''}
                 title={'Profit/lose'}
-                items={items}
+                items={[
+                  {
+                    label: 'Profit/lose 1',
+                    value: 'Profit/lose 2',
+                  },
+                  {
+                    label: 'Profit/lose 2',
+                    value: 'Profit/lose 2',
+                  },
+                ]}
                 onSelectItem={() => {}}
               />
             </Block>

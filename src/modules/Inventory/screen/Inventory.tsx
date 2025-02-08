@@ -135,7 +135,16 @@ function Inventory() {
           <Block margin={[0, 20]} mb={20}>
             <SelectInput
               title={'Taken from'}
-              items={[]}
+              items={[
+                {
+                  label: 'takenFrom 1',
+                  value: 'takenFrom 1',
+                },
+                {
+                  label: 'takenFrom 2',
+                  value: 'takenFrom 2',
+                },
+              ]}
               value={newInventory.takenFrom || ''}
               onSelectItem={value =>
                 onChangeValue('takenFrom', value.value || '')
@@ -145,7 +154,16 @@ function Inventory() {
           <Block margin={[0, 20]} mb={20}>
             <SelectInput
               title={'Return to Origin'}
-              items={[]}
+              items={[
+                {
+                  label: 'returnToOrigin 1',
+                  value: 'returnToOrigin 2',
+                },
+                {
+                  label: 'returnToOrigin 2',
+                  value: 'returnToOrigin 2',
+                },
+              ]}
               value={newInventory.returnToOrigin || ''}
               onSelectItem={value =>
                 onChangeValue('returnToOrigin', value.value || '')
